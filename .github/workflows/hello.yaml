@@ -1,0 +1,14 @@
+name: hello reusable workflow
+on:
+  workflow_call:
+  workflow_dispatch:
+  
+jobs:
+  hello:
+    name: checkout
+    runs-on: ubuntu-22.04
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: hello
+        run: ./scripts/hello.sh
