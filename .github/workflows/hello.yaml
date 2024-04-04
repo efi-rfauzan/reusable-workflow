@@ -5,10 +5,14 @@ on:
   
 jobs:
   hello:
+    env:
+      script: ./scripts/hello.sh
     name: checkout
     runs-on: ubuntu-22.04
     steps:
       - name: checkout
         uses: actions/checkout@v4
+      - name: chmod
+        run: chmod u+x ${{ env.script }}
       - name: hello
-        run: ./scripts/hello.sh
+        run: ${{ env.script }}
