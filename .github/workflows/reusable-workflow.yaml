@@ -12,6 +12,9 @@ jobs:
     steps:
       - name: checkout
         uses: actions/checkout@v4
+        with:
+          repository: 'efi-rfauzan/reusable-workflow'
+          ref: 'main'
       - name: chmod
         run: chmod u+x ${{ env.script }}
       - name: hello
