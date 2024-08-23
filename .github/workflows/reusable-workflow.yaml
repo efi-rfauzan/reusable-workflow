@@ -19,3 +19,6 @@ jobs:
         run: chmod u+x ${{ env.script }}
       - name: hello
         run: ${{ env.script }}
+      - name: Check secret is equal to PASS
+        run: |
+          [[ "${{ secrets.TEST_SECRET }}" == "PASS" ]] && echo "Strings are equal" || echo "Strings are not equal"
